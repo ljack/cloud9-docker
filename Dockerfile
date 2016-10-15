@@ -17,6 +17,8 @@ RUN apt-get install -y nodejs
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
+# Always use https: instead of git: as git: is blocked in many firewalls
+RUN git config --global url.https://.insteadOf git://
 RUN git clone https://github.com/c9/core.git /cloud9
 WORKDIR /cloud9
 RUN scripts/install-sdk.sh
